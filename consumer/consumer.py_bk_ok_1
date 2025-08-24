@@ -1,0 +1,43 @@
+import pika
+import json
+import smtplib
+from email.message import EmailMessage
+
+def send_email(data):
+    msg = EmailMessage()
+    msg.set_content(f"New student added:\n\n{json.dumps(data, indent=2)}")
+    msg['Subject'] = 'New Student Notification'
+    msg['From'] = 'your-email@gmail.com'
+    msg['To'] = 'recipient@example.com'
+
+    # Optional: Replace with working SMTP server
+    try:
+        with smtplib.SMTP('smtp.gmail.com', 587) as server:
+            server.starttls()
+            server.login('your-email@gmail.com', 'your-app-password')
+            server.send_message(msg)
+        print("📧 Email sent.")
+    except Exception as e:
+        print("❌ Email error:", e)
+
+def callback(ch, method, properties, body):
+    try:
+        data = json.loads(body)
+        print("📥 Received from queue:", data)
+        send_email(data)
+    except json.JSONDecodeError as e:
+        print("❌ JSON Decode Error:", e)
+
+# Connect to RabbitMQ
+credentials = pika.PlainCredentials('myuser', 'mypass')
+connection = pika.BlockingConnection(pika.ConnectionParameters(
+    host='rabbitmq', credentials=credentials
+))
+channel = connection.channel()
+
+channel.queue_declare(queue='student_queue', durable=True)
+channel.basic_consume(queue='student_queue', on_message_callback=callback, auto_ack=True)
+
+print("✅ Waiting for messages. To exit press CTRL+C")
+channel.start_consuming()
+
