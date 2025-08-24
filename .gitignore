@@ -1,29 +1,19 @@
+# Node
+**/node_modules/
+**/build/
+
+# Python
+__pycache__/
+*.pyc
+
 # Docker volumes
 db_data/
 pgadmin_data/
 rabbitmq_data/
 
-# Node.js
-frontend/node_modules/
-
-# React build
-frontend/build/
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Environment files
-.env
-.env.*
-
-# Logs
-*.log
-
-# VSCode
+# Editor & OS
 .vscode/
+.DS_Store
 
 # Backup folders
 frontend-bk/
