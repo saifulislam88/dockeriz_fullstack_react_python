@@ -19,3 +19,34 @@
 ├── .gitignore
 └── README.md
 ```
+
+project-root/
+├── backend/
+│   ├── app.py
+│   └── Dockerfile
+├── frontend/
+│   ├── public/ (can be empty)
+│   ├── src/
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── package.json
+│   └── Dockerfile
+├── lb/
+│   └── nginx.conf
+├── docker-compose.yml
+└── README.md
+
+
+
+
+## 🚀 Quick Start
+
+### 1. Clone this Repository
+
+```bash
+git clone https://github.com/saifulislam88/dockeriz_fullstack_react_python.git
+mv dockeriz_fullstack_react_python fs_app
+cd fs_app
+
+
+
