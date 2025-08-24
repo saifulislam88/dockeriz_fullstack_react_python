@@ -10,10 +10,12 @@
 
 ## Project Structure
 
-├── backend/        # Flask backend\
-├── consumer/       # Python consumer for RabbitMQ\
-├── frontend/       # React frontend with nginx.conf\
-├── lb/             # Container based Nginx load balancer config\
-├── docker-compose.yml\
-├── .gitignore\
+```bash
+├── backend/        # Flask backend
+├── consumer/       # Python consumer for RabbitMQ
+├── frontend/       # React frontend with nginx.conf
+├── lb/             # Container based Nginx load balancer config
+├── docker-compose.yml
+├── .gitignore
 └── README.md
+```
