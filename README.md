@@ -11,31 +11,26 @@
 ## Project Structure
 
 ```bash
-├── backend/        # Flask backend
-├── consumer/       # Python consumer for RabbitMQ
-├── frontend/       # React frontend with nginx.conf
-├── lb/             # Container based Nginx load balancer config
-├── docker-compose.yml
-├── .gitignore
-└── README.md
-```
-
-project-root/
-├── backend/
+dockeriz_fullstack_react_python/
+├── backend/                     # Flask backend
 │   ├── app.py
 │   └── Dockerfile
-├── frontend/
+├── consumer/                    # Python consumer for RabbitMQ
+├── frontend/                    # React frontend with nginx.conf
 │   ├── public/ (can be empty)
 │   ├── src/
 │   │   ├── App.js
 │   │   └── index.js
 │   ├── package.json
+│   ├── node_modules/
 │   └── Dockerfile
-├── lb/
+│   └── nginx.conf
+├── lb/                         # Container based Nginx load balancer config
 │   └── nginx.conf
 ├── docker-compose.yml
+├── .gitignore
 └── README.md
-
+```
 
 
 
