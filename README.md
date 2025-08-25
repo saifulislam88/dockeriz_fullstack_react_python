@@ -82,14 +82,15 @@ docker-compose exec backend curl -X POST -v http://backend:5000/api/submit
 ```bash
 docker-compose exec backend bash
 curl -X POST -v http://localhost:5000/api/submit
-apt update && apt install -y curl
+apt update && apt install -y curl               # You can also install curl package permanently from backend Dockerfile
 ```
 
 ```bash
 docker-compose exec backend curl -X POST -v http://backend:5000/api/submit
+```
+```bash
 docker-compose exec backend curl -X POST -H "Content-Type: application/json" -d '{"name": "saiful", "email": "saiful@example.com", "batch": "n5"}' http://backend:5000/api/submit
 ```
-
 
 
 
