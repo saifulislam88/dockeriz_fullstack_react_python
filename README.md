@@ -145,7 +145,7 @@ cd /home/saiful/fs-app
 ls -ll
 chown 5050:5050 pgadmin_data/
 ```
-http://192.168.1.107:8090/\
+http://192.168.1.107:8090/ \
 User: `admin@admin.com`\
 Pass: `admin`
 
