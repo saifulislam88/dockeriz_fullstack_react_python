@@ -68,8 +68,7 @@ Note: all containers and service are running. So chekc the services.
 
 http://192.168.1.107/             # Browse `frontend` application using own IP
 
-<img width="973" height="198" alt="image" src="https://github.com/user-attachments/assets/fa753d1e-01fd-455a-9c29-0ab8a704f875" />
-
+<img width="858" height="144" alt="image" src="https://github.com/user-attachments/assets/eb58086c-1130-4ead-be8b-06dd400ec175" />
 
 ### 4. Backend service check
 
