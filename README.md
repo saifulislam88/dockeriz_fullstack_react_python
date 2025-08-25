@@ -84,16 +84,20 @@ curl -X POST -v http://localhost:5000/api/submit
 apt update && apt install -y curl               # You can also install curl package permanently from backend Dockerfile
 ```
 
+- Is api working ?
 ```bash
 docker-compose exec backend curl -X POST -v http://backend:5000/api/submit
 ```
+<img width="1641" height="292" alt="image" src="https://github.com/user-attachments/assets/46f54d2b-de33-42a9-a745-72045d29b13a" />
+
+- You can also data insert using json with curl
 ```bash
 docker-compose exec backend curl -X POST -H "Content-Type: application/json" -d '{"name": "saiful", "email": "saiful@example.com", "batch": "n5"}' http://backend:5000/api/submit
 ```
 
+### 4. Message broker `RabbitMQ`management
 
-
-
+http://192.168.1.107:15672
 
 Successfully built eafd50c5bae3
 Successfully tagged fs_app_consumer:latest
