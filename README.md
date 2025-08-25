@@ -42,30 +42,51 @@ dockeriz_fullstack_react_python/
 ### 1. Clone this Repository
 
 ```bash
+cd /home/saiful/
 git clone https://github.com/saifulislam88/dockeriz_fullstack_react_python.git
 mv dockeriz_fullstack_react_python fs_app
-cd fs_app
+cd fs-app
 ls -ll
 ```
+
+**Note:** `docker-compose` related all command must execute from respective project directory such as `/home/saiful/fs-app`
 
 ### 2. Image build and application starting
 
 ```bash
-docker-compose build
-docker image ls
+docker-compose build                             # Imaage building
+docker image ls                                  # View all images
 docker-compose up -d                             # Run All Services
 docker-compose ps                                # Running container or apps
-docker-compose images                            #Check running images
+docker-compose images                            # Check running images
 ```
 <img width="2267" height="561" alt="image" src="https://github.com/user-attachments/assets/3dedaa90-ea17-4801-9717-01595a62628b" />
 
-### 2. Image build and application starting
+Note: all containers and service are running. So chekc the services.
+
+### 3. Check frontend application and insert data in db
+
+http://192.168.1.107/             # Browse `frontend` application using own IP
+
+<img width="973" height="198" alt="image" src="https://github.com/user-attachments/assets/fa753d1e-01fd-455a-9c29-0ab8a704f875" />
 
 
+### 4. Backend service check
 
+```bash docker-compose exec backend curl -X POST -v http://backend:5000/api/submit ```
+**Error:** OCI runtime exec failed: exec failed: unable to start container process: exec: "curl": executable file not found in $PATH: unknown
 
+- Temporarily install curl inside the backend container
+```bash
+docker-compose exec backend bash
+curl -X POST -v http://localhost:5000/api/submit
+apt update && apt install -y curl
+```
 
-
+```bash
+docker-compose exec backend curl -X POST -v http://backend:5000/api/submit
+docker-compose exec backend curl -X POST -H "Content-Type: application/json" -d '{"name": "saiful", "email": "saiful@example.com", "batch": "n5"}' http://backend:5000/api/submit
+```
 
 
 
