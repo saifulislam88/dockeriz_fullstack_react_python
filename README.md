@@ -127,13 +127,77 @@ docker-compose exec backend curl -X POST -H "Content-Type: application/json" -d 
 ```
 
 ### 4. Message broker `RabbitMQ`management
-
-http://192.168.1.107:15672
+ 
+http://192.168.1.107:15672   # Browse `Rabbitmq` application using own IP\
+User: `myuser`\
+Pass: `mypass`
+       
 
 ```bash
 docker-compose exec rabbitmq rabbitmqctl list_users
 docker-compose exec rabbitmq rabbitmqctl list_queues
 ```
+
+### 5. pgAdmin db client to connect DB
+
+```bash
+cd /home/saiful/fs-app
+ls -ll
+chown 5050:5050 pgadmin_data/
+```
+http://192.168.1.107:8090/\
+User: `admin@admin.com`\
+Pass: `admin`
+
+
+#### 🔹 1. Access the pgAdmin Web UI
+
+Open your browser.
+
+Navigate to:  
+`http://localhost:8090`  
+(or your server IP, e.g., `http:///192.168.1.107:8090` if using remote)
+
+---
+
+#### 🔹 2. Login to pgAdmin
+
+**Email:** `admin@admin.com`  
+**Password:** `admin`  
+
+*(These are set in the `docker-compose.yml` under `PGADMIN_DEFAULT_*` env vars)*
+
+---
+
+#### 🔹 3. Add a New Server
+
+Once logged in:
+
+- Click **"Add New Server"** (left sidebar).
+
+##### In **General** tab:
+- **Name:** `postgres` (or anything you like)
+
+##### In **Connection** tab:
+- **Host name/address:** `postgres`  
+- **Port:** `5432`  
+- **Username:** `user`  
+- **Password:** `pass`  
+
+✅ Check the **Save Password** box
+
+
+---
+
+## 🔹 4. Explore the DB
+
+Now you can:
+
+- Expand your server tree → **Databases** → `appdb`
+- See:
+  - Tables (e.g., `students`)
+  - Run queries (click on **"Query Tool"**)
+  - Browse data with GUI tools
 
 
 
