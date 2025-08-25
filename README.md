@@ -73,7 +73,9 @@ http://192.168.1.107/             # Browse `frontend` application using own IP
 
 ### 4. Backend service check
 
-```bash docker-compose exec backend curl -X POST -v http://backend:5000/api/submit ```
+```bash 
+docker-compose exec backend curl -X POST -v http://backend:5000/api/submit
+```
 **Error:** OCI runtime exec failed: exec failed: unable to start container process: exec: "curl": executable file not found in $PATH: unknown
 
 - Temporarily install curl inside the backend container
